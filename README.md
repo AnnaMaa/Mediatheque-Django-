@@ -1,65 +1,92 @@
-# 📚 Projet Django — Gestion de Médiathèque
+# 🎓 Médiathèque Django  
+> Projet de gestion de médiathèque réalisé dans le cadre du module **“Programmer orienté-objet avec Python”**
 
-Ce projet a été développé dans le cadre du devoir **"Programmer orienté-objet avec Python"**.  
-L’objectif est de créer un **logiciel de gestion de médiathèque** en respectant les principes de la **programmation orientée objet (POO)** et en utilisant le framework **Django**.
+![Python](https://img.shields.io/badge/python-3.13-blue?logo=python)
+![Django](https://img.shields.io/badge/Django-5.1-green?logo=django)
+![Tests](https://img.shields.io/badge/tests-pytest%20%7C%20pytest--django-yellow)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+![Status](https://img.shields.io/badge/build-passing-brightgreen)
 
 ---
 
 ## 🚀 Fonctionnalités principales
 
-### 🎓 Application Bibliothécaire (accès restreint)
-- Création, modification et suppression de **membres**
+### 👩‍💼 Application Bibliothécaire (accès restreint)
+- Gestion complète des **membres**
 - Gestion des **livres, CD, DVD et jeux de plateau**
-- Création et suivi des **emprunts**
-- Retour des médias empruntés (remise automatique en disponible)
-- Règles métier intégrées :
+- Création / retour d’**emprunts**
+- Règles métier :
   - Un membre ne peut pas emprunter plus de **3 médias**
-  - Un emprunt dure **1 semaine**
-  - Un membre en retard ne peut plus emprunter
+  - Durée d’un emprunt : **1 semaine**
+  - Retard = blocage d’emprunt
   - Les jeux de plateau ne sont **pas empruntables**
 
 ### 👥 Application Publique (consultation)
-- Consultation du **catalogue complet** (livres, CD, DVD, jeux)
-- Affichage du statut (disponible / emprunté)
+- Accès libre au **catalogue complet**
+- Indication du statut de chaque média (**disponible / emprunté**)
 
 ---
 
-## 🧩 Structure du projet
+## 🧠 Architecture et POO
+
+- **Héritage** :  
+  `Media` (abstraite) → `Livre`, `Cd`, `Dvd`  
+  + `JeuDePlateau` indépendant
+- **Encapsulation** : méthodes `peut_emprunter`, `a_un_retard`, etc.
+- **Polymorphisme** : manipulation uniforme de tous les médias via la classe mère `Media`.
+
+---
+
+## 📂 Structure du projet
 
 mediatheque/
 │
 ├── manage.py
-├── mediatheque/ ← Configuration principale Django
-│ ├── settings.py
-│ ├── urls.py
-│ └── wsgi.py
-│
-├── catalog/ ← Application publique (consultation)
-│ ├── models.py
-│ ├── views.py
-│ ├── urls.py
-│ ├── templates/
-│ │ └── catalogue.html
-│ └── tests.py
-│
-├── bibliothecaire/ ← Application interne (bibliothécaires)
-│ ├── views.py
-│ ├── urls.py
-│ └── templates/
-│ └── bibliothecaire/
-│ ├── dashboard.html
-│ ├── liste_membres.html
-│ ├── liste_medias.html
-│ └── liste_emprunts.html
-│
-├── catalog/fixtures/ ← Données de démonstration
-│ └── demo.json
-│
-├── logs/ ← Fichiers journaux (logging)
-│ └── mediatheque.log
-│
+├── db.sqlite3
+├── .gitignore
 ├── requirements.txt
-└── README.md
+├── start_django.bat
+├── README.md
+│
+├── mediatheque/                     # Configuration principale du projet Django
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   ├── wsgi.py
+│   └── __init__.py
+│
+├── catalog/                         # Application publique (consultation)
+│   ├── admin.py
+│   ├── apps.py
+│   ├── fixtures/
+│   │   └── demo.json
+│   ├── migrations/
+│   ├── models.py
+│   ├── templates/
+│   │   └── catalogue.html
+│   ├── tests.py
+│   ├── urls.py
+│   ├── views.py
+│   └── __init__.py
+│
+├── bibliothecaire/                  # Application interne (bibliothécaires)
+│   ├── apps.py
+│   ├── migrations/
+│   ├── models.py
+│   ├── templates/
+│   │   └── bibliothecaire/
+│   │       ├── dashboard.html
+│   │       ├── liste_membres.html
+│   │       ├── liste_medias.html
+│   │       └── liste_emprunts.html
+│   ├── tests.py
+│   ├── urls.py
+│   ├── views.py
+│   └── __init__.py
+│
+├── .venv/                           # Environnement virtuel (non versionné)
+└── .idea/                           # Fichiers PyCharm (non versionnés)
+
 ---
 
 ## 🧠 Contraintes et principes POO
@@ -132,19 +159,19 @@ Tentative d’emprunt refusée (quota, retard, indisponibilité)
 Tu peux charger une base d’exemple avec :
 
 python manage.py loaddata catalog/fixtures/demo.json
+s
 
+Contient :
 
-Elle contient :
+5 📖 Livres
 
-5 livres
+5 💿 CD
 
-5 CD
+5 🎬 DVD
 
-5 DVD
+2 👥 Membres
 
-2 membres
-
-1 jeu de plateau
+1 🎲 Jeu de plateau
 
 🧑‍💻 Auteur
 
