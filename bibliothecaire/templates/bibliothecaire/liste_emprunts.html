@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des emprunts</title>
+</head>
+<body>
+<h1>Liste des emprunts</h1>
+<ul>
+  {% for e in emprunts %}
+    <li>{{ e.membre.nom }} → {{ e.media_obj }} ({{ e.date_emprunt|date:"d/m/Y" }}){% if e.date_retour %} - Retour le {{ e.date_retour|date:"d/m/Y" }}{% endif %}</li>
+  {% empty %}
+    <li>Aucun emprunt</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'biblio_dashboard' %}">Retour</a>
+
+</body>
+</html>

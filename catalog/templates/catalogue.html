@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+
+  <head><meta charset="utf-8">
+        <title>Catalogue - Médiathèque</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #2c3e50; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 4px 0; padding: 6px; border-bottom: 1px solid #ccc; }
+        .dispo { color: green; font-weight: bold; }
+        .indispo { color: red; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <h1>Catalogue de la Médiathèque</h1>
+
+  <h2>Livres</h2>
+    <ul>
+        {% for l in livres %}
+            <li>
+                {{ l.titre }} — {{ l.auteur }}
+                {% if l.disponible %}
+                    <span class="dispo">(disponible)</span>
+                {% else %}
+                    <span class="indispo">(emprunté)</span>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Aucun livre disponible</li>
+        {% endfor %}
+    </ul>
+
+    <h2>DVD</h2>
+    <ul>
+        {% for d in dvds %}
+            <li>
+                {{ d.titre }} — {{ d.realisateur }}
+                {% if d.disponible %}
+                    <span class="dispo">(disponible)</span>
+                {% else %}
+                    <span class="indispo">(emprunté)</span>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Aucun DVD disponible</li>
+        {% endfor %}
+    </ul>
+
+    <h2>CD</h2>
+    <ul>
+        {% for c in cds %}
+            <li>
+                {{ c.titre }} — {{ c.artiste }}
+                {% if c.disponible %}
+                    <span class="dispo">(disponible)</span>
+                {% else %}
+                    <span class="indispo">(emprunté)</span>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Aucun CD disponible</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Jeux de plateau (consultation uniquement)</h2>
+    <ul>
+        {% for j in jeux %}
+            <li>{{ j.titre }} — {{ j.createur }}</li>
+        {% empty %}
+            <li>Aucun jeu disponible</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

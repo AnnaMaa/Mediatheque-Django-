@@ -1,0 +1,19 @@
+[
+  { "model": "catalog.livre", "fields": { "titre": "Le Petit Prince", "auteur": "Antoine de Saint-Exupéry", "disponible": true } },
+  { "model": "catalog.livre", "fields": { "titre": "L'Étranger", "auteur": "Albert Camus", "disponible": true } },
+  { "model": "catalog.livre", "fields": { "titre": "1984", "auteur": "George Orwell", "disponible": true } },
+  { "model": "catalog.livre", "fields": { "titre": "Les Misérables", "auteur": "Victor Hugo", "disponible": true } },
+  { "model": "catalog.livre", "fields": { "titre": "La Peste", "auteur": "Albert Camus", "disponible": true } },
+
+  { "model": "catalog.cd", "fields": { "titre": "Random Access Memories", "artiste": "Daft Punk", "disponible": true } },
+  { "model": "catalog.cd", "fields": { "titre": "Thriller", "artiste": "Michael Jackson", "disponible": true } },
+  { "model": "catalog.cd", "fields": { "titre": "Back in Black", "artiste": "AC/DC", "disponible": true } },
+  { "model": "catalog.cd", "fields": { "titre": "The Dark Side of the Moon", "artiste": "Pink Floyd", "disponible": true } },
+  { "model": "catalog.cd", "fields": { "titre": "Nevermind", "artiste": "Nirvana", "disponible": true } },
+
+  { "model": "catalog.dvd", "fields": { "titre": "Matrix", "realisateur": "Lana & Lilly Wachowski", "disponible": true } },
+  { "model": "catalog.dvd", "fields": { "titre": "Inception", "realisateur": "Christopher Nolan", "disponible": true } },
+  { "model": "catalog.dvd", "fields": { "titre": "Le Fabuleux Destin d'Amélie Poulain", "realisateur": "Jean-Pierre Jeunet", "disponible": true } },
+  { "model": "catalog.dvd", "fields": { "titre": "Interstellar", "realisateur": "Christopher Nolan", "disponible": true } },
+  { "model": "catalog.dvd", "fields": { "titre": "Le Seigneur des Anneaux : La Communauté de l'Anneau", "realisateur": "Peter Jackson", "disponible": true } }
+]

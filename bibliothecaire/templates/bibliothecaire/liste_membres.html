@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Liste des membres</title>
+</head>
+<body>
+<h1>Liste des membres</h1>
+<ul>
+  {% for m in membres %}
+    <li>{{ m.nom }} - {{ m.email }}</li>
+  {% empty %}
+    <li>Aucun membre</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'biblio_dashboard' %}">Retour</a>
+
+</body>
+</html>

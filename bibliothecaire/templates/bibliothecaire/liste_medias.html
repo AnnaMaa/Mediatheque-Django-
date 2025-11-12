@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des médias</title>
+</head>
+<body>
+<h1>Liste des médias</h1>
+<h2>Livres</h2>
+<ul>{% for l in livres %}<li>{{ l.titre }} - {{ l.auteur }}</li>{% empty %}<li>Aucun</li>{% endfor %}</ul>
+
+<h2>DVD</h2>
+<ul>{% for d in dvds %}<li>{{ d.titre }} - {{ d.realisateur }}</li>{% empty %}<li>Aucun</li>{% endfor %}</ul>
+
+<h2>CD</h2>
+<ul>{% for c in cds %}<li>{{ c.titre }} - {{ c.artiste }}</li>{% empty %}<li>Aucun</li>{% endfor %}</ul>
+
+<h2>Jeux de plateau</h2>
+<ul>{% for j in jeux %}<li>{{ j.titre }} - {{ j.createur }}</li>{% empty %}<li>Aucun</li>{% endfor %}</ul>
+
+<a href="{% url 'biblio_dashboard' %}">Retour</a>
+
+</body>
+</html>

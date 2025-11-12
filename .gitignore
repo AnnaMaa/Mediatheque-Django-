@@ -1,0 +1,27 @@
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Fichiers Python temporaires
+__pycache__/
+*.pyc
+*.pyo
+
+# Base de données locale
+db.sqlite3
+
+# Dossiers de logs
+logs/
+
+# Fichiers Django statiques générés
+staticfiles/
+media/
+
+# Fichiers d’environnement
+.env
+
+# Tests et caches
+.coverage
+htmlcov/
+pytest_cache/
