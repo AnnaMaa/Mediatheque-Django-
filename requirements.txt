@@ -1,0 +1,5 @@
+Django>=5.1,<5.2
+pytest
+pytest-django
+psycopg[binary]
+python-dotenv
