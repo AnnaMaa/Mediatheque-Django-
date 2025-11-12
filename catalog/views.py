@@ -1,5 +1,13 @@
 from django.shortcuts import render
 from .models import Livre, Dvd, Cd, JeuDePlateau
+import logging
+
+
+logger = logging.getLogger(__name__)
+
+def creer_emprunt(request):
+    logger.info(f"Nouvel emprunt par {request.user}")
+
 
 def catalogue(request):
     ctx = {
